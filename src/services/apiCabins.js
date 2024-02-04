@@ -11,18 +11,15 @@ export async function getCapins() {
 }
 
 export async function createEditCabin(newCabin, id) {
-  console.log("hemo", newCabin, "id", id);
   const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
   const imageName = `${Math.random()}-${newCabin.image.name}`.replaceAll(
     "/",
     ""
   );
-  console.log("zz", hasImagePath);
 
   const imagePath = hasImagePath
     ? newCabin.image
     : `${supabaseUrl}/storage/v1/object/public/cabin-images/${imageName}`;
-  console.log(imagePath);
   //1-Create/Edit cabin
   let query = supabase.from("cabins");
 
