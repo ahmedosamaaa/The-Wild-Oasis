@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
-
+import Modal from "../../ui/Modal";
 import { formatCurrency } from "../../utils/helpers";
 import CreateCabinForm from "./CreateCabinForm";
 import { useDeleteCabin } from "./useDeleteCabin";
 import { useCreateCabin } from "./useCreateCabin";
 import Table from "../../ui/Table";
+import ConfirmDelete from "../../ui/ConfirmDelete";
 
 // const TableRow = styled.div`
 //   display: grid;
@@ -113,7 +114,6 @@ function CabinRow({ cabin }) {
           </Modal>
         </div>
       </Table.Row>
-      {showForm && <CreateCabinForm cabinToEdit={cabin} />}
     </>
   );
 }
